@@ -2,7 +2,6 @@ package com.aoc.controllers
 
 import com.aoc.decoders.Day2Decoder
 import com.aoc.services.GameInputWeightsService
-import com.aoc.enums.GameInputs
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.validation.Validated
@@ -19,7 +18,7 @@ class Day2Controller(private val decoder: Day2Decoder, private val gameInputWeig
         val bufferedReader: BufferedReader = File("C:\\import\\day2.txt").bufferedReader()
         val inputString = bufferedReader.use { it.readText() }
         val allInput = inputString.replace("\r", "").split("\n").toTypedArray()
-        val mc = mutableListOf<GameInputs>()
+
         var totalScore = 0
 
         for (input in allInput) {
@@ -32,6 +31,6 @@ class Day2Controller(private val decoder: Day2Decoder, private val gameInputWeig
 
         println(allInput)
 
-        return "My total score is $totalScore";
+        return "My total score is $totalScore"
     }
 }
